@@ -23,23 +23,15 @@ function onDeviceReady(): void {
 
     var startNfcBtn = document.getElementById('nfcStart');
     startNfcBtn.addEventListener("click", (view) => {
-        console.log("Clicked start");
         nfc.addTagDiscoveredListener(onNfc, (suc) => {
             console.log("success: addTagDiscoveredListener")
         }, (err) => {
             console.log("failed: " + err);
         });
-        //nfc.addNdefListener(onNfc, () => {
-        //    console.log("Listening for NFC Messages");
-           
-        //}, (err) => {
-        //    console.log("failed: " + err);
-        //});
     });
 
     var startNfcBtn = document.getElementById('nfcStop');
     startNfcBtn.addEventListener("click", (view) => {
-        console.log("Clicked stop");
         nfc.removeTagDiscoveredListener(onNfc, () => {
             console.log("success: removeTagDiscoveredListener");
         }, (err) => {

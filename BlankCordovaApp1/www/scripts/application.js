@@ -20,21 +20,14 @@ define(["require", "exports"], function (require, exports) {
         receivedElement.setAttribute('style', 'display:block;');
         var startNfcBtn = document.getElementById('nfcStart');
         startNfcBtn.addEventListener("click", function (view) {
-            console.log("Clicked start");
             nfc.addTagDiscoveredListener(onNfc, function (suc) {
                 console.log("success: addTagDiscoveredListener");
             }, function (err) {
                 console.log("failed: " + err);
             });
-            //nfc.addNdefListener(onNfc, () => {
-            //    console.log("Listening for NFC Messages");
-            //}, (err) => {
-            //    console.log("failed: " + err);
-            //});
         });
         var startNfcBtn = document.getElementById('nfcStop');
         startNfcBtn.addEventListener("click", function (view) {
-            console.log("Clicked stop");
             nfc.removeTagDiscoveredListener(onNfc, function () {
                 console.log("success: removeTagDiscoveredListener");
             }, function (err) {
